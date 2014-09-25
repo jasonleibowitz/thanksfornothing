@@ -1,0 +1,14 @@
+.red {
+  background: red;
+}
+
+#hero-img-wrap {
+  background: red;
+  width: 100%;
+  height: 100%;
+}
+
+#hero-img {
+  width: 100%;
+  overflow: hidden;
+}
