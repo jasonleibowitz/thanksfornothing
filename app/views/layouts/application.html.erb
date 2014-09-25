@@ -11,6 +11,13 @@
   <h1><%= link_to 'Thanks for Nothing', root_path %></h1>
 
 <%= yield %>
+  <br>
+  <% if current_user %>
+    <%= link_to 'Logout', destroy_user_session_path, method: 'delete' %>
+  <% else %>
+    <%= link_to 'Admin Login', new_user_session_path, method: 'get' %>
+  <% end %>
+  <%= link_to 'New Post', new_post_path %>
 
 </body>
 </html>
