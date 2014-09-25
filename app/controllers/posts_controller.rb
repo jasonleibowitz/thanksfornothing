@@ -12,6 +12,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  # Add user attribute on create, after devise
   def create
     @post = Post.new(post_params)
     if @post.valid?
