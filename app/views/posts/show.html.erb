@@ -1,4 +1,6 @@
 <h1><%= @post.title %></h1>
+<p><%= @post.created_at.strftime "%B %e, %Y" %></p>
+<p><%= @post.user.first_name %> <%= @post.user.last_name %></p>
 <p><%= raw sanitize(simple_format(@post.post_text)) %></p>
 <ul>
   <% unless @post.tags.empty? %>
