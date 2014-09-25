@@ -11,11 +11,13 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem "figaro"
+gem "figaro", '~> 1.0.0'
+gem 'chronic'
 group :development do
   gem "better_errors"
   gem 'spring'
   gem 'rspec-rails', '~> 3.0.0'
+  gem 'pry-rails'
 end
 
 
