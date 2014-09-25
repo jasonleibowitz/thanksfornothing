@@ -10,12 +10,14 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @teams = Team.all
   end
 
   # Add user attribute on create, after devise
   def create
     @post = Post.new(post_params)
     if @post.valid?
+      @post.parse_and_save_tags(params[:post][:tags])
       @post.save
       redirect_to :posts
     else
@@ -25,12 +27,14 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @teams = Team.all
   end
 
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
     if @post.valid?
+      @post.parse_and_save_tags(params[:post][:tags])
       @post.save
       redirect_to @post
     else
@@ -46,7 +50,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :post_text)
+    params.require(:post).permit(:title, :post_text, :team_id)
   end
 
 end
