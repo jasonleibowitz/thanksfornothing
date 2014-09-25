@@ -1,0 +1,18 @@
+<div class="field_with_errors">
+  <% if @post.errors.any? %>
+    <% @post.errors.full_messages.each do |msg| %>
+      <ul>
+        <li><%= msg %></li>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control' %>
+
+  <%= f.label :post_text %>
+  <%= f.text_area :post_text, class: 'form-control' %> <br>
+
+  <%= f.submit class: 'btn' %>
+<% end %>

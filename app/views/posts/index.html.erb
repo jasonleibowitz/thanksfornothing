@@ -2,7 +2,7 @@
 
 <ul>
   <% @posts.each do |post| %>
-    <li><%= post.title %> - <%= post.created_at %></li>
+    <li><%= link_to post.title, post_path(post) %></li>
     <p><%= raw sanitize(simple_format(post.post_text)) %></p></li>
   <% end %>
 </ul>
