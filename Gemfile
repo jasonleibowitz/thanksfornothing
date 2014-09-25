@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem "figaro", '~> 1.0.0'
 gem 'chronic'
+gem 'devise'
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
