@@ -14,5 +14,11 @@
   <%= f.label :post_text %>
   <%= f.text_area :post_text, class: 'form-control' %> <br>
 
+  <%= f.label :team %>
+  <%= f.select(:team_id, options_from_collection_for_select(@teams, 'id', 'name'), class: 'form-control') %> <br>
+
+  <%= f.label 'add tags' %>
+  <%= f.text_field :tags, value: nil, class: 'form-control' %>
+
   <%= f.submit class: 'btn' %>
 <% end %>
