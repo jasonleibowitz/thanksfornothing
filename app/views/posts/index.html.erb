@@ -2,7 +2,9 @@
 
 <ul>
   <% @posts.each do |post| %>
-    <li><%= link_to post.title, post_path(post) %></li>
+    <h3><%= link_to post.title, post_path(post) %></h3>
+    <p class="date"><%= post.created_at.strftime "%B %e, %Y" %></p>
+    <h5>by <%= post.user.first_name %> <%= post.user.last_name %></h5>
     <p><%= raw sanitize(simple_format(post.post_text)) %></p></li>
   <% end %>
 </ul>
