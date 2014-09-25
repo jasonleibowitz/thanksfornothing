@@ -12,3 +12,7 @@
   width: 100%;
   overflow: hidden;
 }
+
+.field_with_errors {
+  color: red;
+}
