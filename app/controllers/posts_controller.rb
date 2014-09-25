@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @posts = Post.all.order(created_at: :desc)
   end
@@ -13,13 +15,13 @@ class PostsController < ApplicationController
     @teams = Team.all
   end
 
-  # Add user attribute on create, after devise
   def create
     @post = Post.new(post_params)
     if @post.valid?
       @post.parse_and_save_tags(params[:post][:tags])
+      @post.user = current_user
       @post.save
-      redirect_to :posts
+      redirect_to @post
     else
       render :new
     end
